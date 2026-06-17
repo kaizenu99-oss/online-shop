@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="border-t border-rose-100 bg-[#fdeef1] px-4 py-10 sm:px-6 sm:py-12 dark:border-rose-900/60 dark:bg-[#241016]">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4">
         <div>
-          <p className="font-serif text-2xl text-rose-700 dark:text-rose-300">🌸 pesio</p>
+          <p className="font-serif text-2xl text-rose-700 dark:text-rose-300">🌸 Төгс сонголт</p>
           <p className="mt-3 max-w-xs text-sm text-neutral-500 dark:text-rose-200/60">
             {t(ui.footer.tagline, lang)}
           </p>
@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto mt-10 max-w-7xl border-t border-rose-100 pt-6 text-xs text-neutral-400 dark:border-rose-900/60 dark:text-rose-200/40">
-        © {new Date().getFullYear()} pesio. {t(ui.footer.rights, lang)}
+        © {new Date().getFullYear()} Төгс сонголт. {t(ui.footer.rights, lang)}
       </div>
     </footer>
   );

@@ -19,7 +19,7 @@ export default function TopBar() {
         <Link href="/" className="flex shrink-0 items-baseline gap-2">
           <span aria-hidden className="text-xl">🌸</span>
           <span className="font-serif text-2xl font-bold tracking-wide text-rose-700 sm:text-3xl dark:text-rose-300">
-            pesio
+            Төгс сонголт
           </span>
           <span className="hidden text-xs leading-tight text-neutral-500 sm:block dark:text-rose-200/60">
             {t(ui.topBar.tagline, lang)}

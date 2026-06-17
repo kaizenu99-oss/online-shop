@@ -2,7 +2,7 @@ import type { Localized } from "../lib/language";
 
 export const ui = {
   utilityBar: {
-    welcome: { mn: "Тавтай морил", en: "Welcome to pesio" } as Localized,
+    welcome: { mn: "Тавтай морил", en: "Welcome to Tugs Songolt" } as Localized,
     myOrders: { mn: "Захиалгууд", en: "My Orders" } as Localized,
     branchAddress: { mn: "Салбарын хаяг байршил", en: "Branch address and location" } as Localized,
     help: { mn: "Тусламж", en: "Help" } as Localized,
@@ -33,6 +33,15 @@ export const ui = {
       en: "We've got the smartest selected items on Member Fridays",
     } as Localized,
     products: { mn: "бараа", en: "Products" } as Localized,
+  },
+  categoryPage: {
+    home: { mn: "Нүүр", en: "Home" } as Localized,
+    backToCategories: { mn: "Бүх ангилал", en: "All categories" } as Localized,
+    notFoundTitle: { mn: "Ангилал олдсонгүй", en: "Category not found" } as Localized,
+    notFoundBody: {
+      mn: "Таны хайсан ангилал байхгүй байна.",
+      en: "The category you're looking for doesn't exist.",
+    } as Localized,
   },
   promos: {
     shopNow: { mn: "ОДОО ХУДАЛДАЖ АВАХ", en: "SHOP NOW" } as Localized,

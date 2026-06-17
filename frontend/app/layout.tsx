@@ -27,7 +27,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "pesio | Online Shop",
+  title: "Төгс сонголт | Online Shop",
   description: "Awesome products for the dynamic urban lifestyle.",
 };
 

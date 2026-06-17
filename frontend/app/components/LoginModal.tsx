@@ -55,7 +55,7 @@ export default function LoginModal({
           <CloseIcon />
         </button>
 
-        <p className="font-serif text-2xl text-rose-700 dark:text-rose-300">🌸 pesio</p>
+        <p className="font-serif text-2xl text-rose-700 dark:text-rose-300">🌸 Төгс сонголт</p>
 
         <div className="mt-6 flex gap-6 border-b border-rose-100 text-sm font-medium dark:border-rose-900/60">
           <button
