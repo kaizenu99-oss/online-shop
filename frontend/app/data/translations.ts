@@ -2,7 +2,7 @@ import type { Localized } from "../lib/language";
 
 export const ui = {
   utilityBar: {
-    welcome: { mn: "Тавтай морил pesio дээр", en: "Welcome to pesio" } as Localized,
+    welcome: { mn: "Тавтай морил", en: "Welcome to pesio" } as Localized,
     myOrders: { mn: "Захиалгууд", en: "My Orders" } as Localized,
     branchAddress: { mn: "Салбарын хаяг байршил", en: "Branch address and location" } as Localized,
     help: { mn: "Тусламж", en: "Help" } as Localized,
