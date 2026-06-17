@@ -43,28 +43,28 @@ export default function LoginModal({
       <div
         role="dialog"
         aria-modal="true"
-        className="relative w-full max-w-sm rounded-lg bg-white p-6 shadow-xl sm:p-8"
+        className="relative w-full max-w-sm rounded-lg bg-white p-6 shadow-xl sm:p-8 dark:bg-[#241016]"
         onClick={(event) => event.stopPropagation()}
       >
         <button
           type="button"
           onClick={onClose}
           aria-label={t(ui.auth.close, lang)}
-          className="absolute right-4 top-4 text-neutral-400 hover:text-neutral-700"
+          className="absolute right-4 top-4 text-neutral-400 hover:text-neutral-700 dark:text-rose-200/50 dark:hover:text-rose-200"
         >
           <CloseIcon />
         </button>
 
-        <p className="font-serif text-2xl text-neutral-900">pesio</p>
+        <p className="font-serif text-2xl text-rose-700 dark:text-rose-300">🌸 pesio</p>
 
-        <div className="mt-6 flex gap-6 border-b border-neutral-200 text-sm font-medium">
+        <div className="mt-6 flex gap-6 border-b border-rose-100 text-sm font-medium dark:border-rose-900/60">
           <button
             type="button"
             onClick={() => setMode("login")}
             className={
               mode === "login"
-                ? "border-b-2 border-neutral-900 pb-3 text-neutral-900"
-                : "pb-3 text-neutral-400 hover:text-neutral-700"
+                ? "border-b-2 border-rose-500 pb-3 text-rose-600 dark:text-rose-300"
+                : "pb-3 text-neutral-400 hover:text-rose-500"
             }
           >
             {t(ui.auth.loginTab, lang)}
@@ -74,8 +74,8 @@ export default function LoginModal({
             onClick={() => setMode("signup")}
             className={
               mode === "signup"
-                ? "border-b-2 border-neutral-900 pb-3 text-neutral-900"
-                : "pb-3 text-neutral-400 hover:text-neutral-700"
+                ? "border-b-2 border-rose-500 pb-3 text-rose-600 dark:text-rose-300"
+                : "pb-3 text-neutral-400 hover:text-rose-500"
             }
           >
             {t(ui.auth.signupTab, lang)}
@@ -93,12 +93,12 @@ export default function LoginModal({
           )}
 
           {mode === "login" && (
-            <div className="flex items-center justify-between text-xs text-neutral-500">
+            <div className="flex items-center justify-between text-xs text-neutral-500 dark:text-rose-200/50">
               <label className="flex items-center gap-2">
                 <input type="checkbox" className="rounded border-neutral-300" />
                 {t(ui.auth.rememberMe, lang)}
               </label>
-              <a href="#" className="hover:text-neutral-900">
+              <a href="#" className="hover:text-rose-600 dark:hover:text-rose-300">
                 {t(ui.auth.forgotPassword, lang)}
               </a>
             </div>
@@ -106,38 +106,38 @@ export default function LoginModal({
 
           <button
             type="submit"
-            className="mt-2 w-full rounded bg-neutral-900 px-6 py-3 text-sm font-medium text-white hover:bg-neutral-800"
+            className="mt-2 w-full rounded bg-rose-600 px-6 py-3 text-sm font-medium text-white hover:bg-rose-700"
           >
             {mode === "login" ? t(ui.auth.loginButton, lang) : t(ui.auth.signupButton, lang)}
           </button>
         </form>
 
-        <div className="mt-6 flex items-center gap-3 text-xs text-neutral-400">
-          <span className="h-px flex-1 bg-neutral-200" />
+        <div className="mt-6 flex items-center gap-3 text-xs text-neutral-400 dark:text-rose-200/40">
+          <span className="h-px flex-1 bg-rose-100 dark:bg-rose-900/60" />
           {t(ui.auth.orContinueWith, lang)}
-          <span className="h-px flex-1 bg-neutral-200" />
+          <span className="h-px flex-1 bg-rose-100 dark:bg-rose-900/60" />
         </div>
 
         <button
           type="button"
-          className="mt-4 flex w-full items-center justify-center gap-2 rounded border border-neutral-300 px-6 py-3 text-sm font-medium text-neutral-700 hover:border-neutral-500"
+          className="mt-4 flex w-full items-center justify-center gap-2 rounded border border-rose-200 px-6 py-3 text-sm font-medium text-neutral-700 hover:border-rose-400 dark:border-rose-800 dark:text-rose-100"
         >
           <GoogleIcon />
           {t(ui.auth.google, lang)}
         </button>
 
-        <p className="mt-6 text-center text-xs text-neutral-500">
+        <p className="mt-6 text-center text-xs text-neutral-500 dark:text-rose-200/50">
           {mode === "login" ? (
             <>
               {t(ui.auth.noAccount, lang)}{" "}
-              <button type="button" onClick={() => setMode("signup")} className="font-medium text-neutral-900 hover:underline">
+              <button type="button" onClick={() => setMode("signup")} className="font-medium text-rose-600 hover:underline dark:text-rose-300">
                 {t(ui.auth.signupTab, lang)}
               </button>
             </>
           ) : (
             <>
               {t(ui.auth.haveAccount, lang)}{" "}
-              <button type="button" onClick={() => setMode("login")} className="font-medium text-neutral-900 hover:underline">
+              <button type="button" onClick={() => setMode("login")} className="font-medium text-rose-600 hover:underline dark:text-rose-300">
                 {t(ui.auth.loginTab, lang)}
               </button>
             </>
@@ -158,13 +158,13 @@ function Field({
   autoComplete: string;
 }) {
   return (
-    <label className="flex flex-col gap-1 text-left text-xs font-medium text-neutral-600">
+    <label className="flex flex-col gap-1 text-left text-xs font-medium text-neutral-600 dark:text-rose-200/70">
       {label}
       <input
         type={type}
         autoComplete={autoComplete}
         required
-        className="rounded border border-neutral-300 px-3 py-2 text-sm text-neutral-900 outline-none focus:border-neutral-500"
+        className="rounded border border-rose-200 px-3 py-2 text-sm text-neutral-900 outline-none focus:border-rose-400 dark:border-rose-800 dark:bg-[#1a0e13] dark:text-rose-50 dark:focus:border-rose-500"
       />
     </label>
   );

@@ -47,13 +47,13 @@ export default function ProductCard({ product }: { product: Product }) {
 
       <div className="mt-4 flex flex-col gap-1">
         <p className="text-xs text-yellow-500">{"★".repeat(product.rating)}{"☆".repeat(5 - product.rating)}</p>
-        <h3 className="text-sm font-medium text-neutral-800 group-hover:underline">
+        <h3 className="text-sm font-medium text-neutral-800 group-hover:text-rose-600 group-hover:underline dark:text-rose-100">
           {name}
         </h3>
-        <p className="text-sm font-semibold text-neutral-900">
+        <p className="text-sm font-semibold text-neutral-900 dark:text-rose-50">
           ${product.price}
           {product.oldPrice && (
-            <span className="ml-2 text-xs font-normal text-neutral-400 line-through">
+            <span className="ml-2 text-xs font-normal text-neutral-400 line-through dark:text-rose-200/40">
               ${product.oldPrice}
             </span>
           )}
@@ -65,7 +65,7 @@ export default function ProductCard({ product }: { product: Product }) {
           className={`mt-2 flex items-center justify-center gap-2 rounded border px-3 py-2 text-xs font-medium transition-colors ${
             added
               ? "border-emerald-600 bg-emerald-600 text-white"
-              : "border-neutral-300 text-neutral-800 hover:border-neutral-900 hover:bg-neutral-900 hover:text-white"
+              : "border-rose-200 text-neutral-800 hover:border-rose-600 hover:bg-rose-600 hover:text-white dark:border-rose-800 dark:text-rose-100"
           }`}
         >
           {added ? <CheckIcon /> : <CartPlusIcon />}

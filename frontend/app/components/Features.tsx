@@ -10,16 +10,16 @@ export default function Features() {
   const { lang } = useLanguage();
 
   return (
-    <section className="border-t border-neutral-200 px-4 py-8 sm:px-6 sm:py-10">
+    <section className="border-t border-rose-100 px-4 py-8 sm:px-6 sm:py-10 dark:border-rose-900/60">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4">
         {ui.features.map((feature, index) => (
           <div key={t(feature.title, lang)} className="flex items-center gap-4">
-            <span className="text-neutral-700">{icons[index]}</span>
+            <span className="text-rose-500">{icons[index]}</span>
             <div>
-              <p className="text-sm font-semibold text-neutral-900">
+              <p className="text-sm font-semibold text-neutral-900 dark:text-rose-100">
                 {t(feature.title, lang)}
               </p>
-              <p className="text-xs text-neutral-500">{t(feature.description, lang)}</p>
+              <p className="text-xs text-neutral-500 dark:text-rose-200/50">{t(feature.description, lang)}</p>
             </div>
           </div>
         ))}

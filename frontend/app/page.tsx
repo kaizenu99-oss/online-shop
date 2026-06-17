@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col bg-white">
+    <div className="flex flex-1 flex-col bg-[#fff5f7] dark:bg-[#1a0e13]">
       <Header />
       <FeaturedBanners />
       <CategoryList />

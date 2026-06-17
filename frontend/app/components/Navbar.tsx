@@ -25,14 +25,14 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="border-b border-neutral-200 bg-white">
+    <nav className="border-b border-rose-100 bg-white dark:border-rose-900/60 dark:bg-[#241016]">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 text-sm sm:px-6">
         <button
           type="button"
           onClick={() => setMenuOpen((value) => !value)}
           aria-expanded={menuOpen}
           aria-label="Toggle menu"
-          className="flex items-center gap-2 text-xs font-medium tracking-wide text-neutral-700 md:hidden"
+          className="flex items-center gap-2 text-xs font-medium tracking-wide text-neutral-700 md:hidden dark:text-rose-200"
         >
           <MenuIcon open={menuOpen} />
           {t(ui.nav.menu, lang)}
@@ -46,8 +46,8 @@ export default function Navbar() {
                 onClick={() => setActiveTab(tab.id)}
                 className={
                   activeTab === tab.id
-                    ? "font-medium text-blue-600"
-                    : "text-neutral-700 hover:text-neutral-900"
+                    ? "font-medium text-rose-600 dark:text-rose-300"
+                    : "text-neutral-700 hover:text-rose-600 dark:text-rose-200/70 dark:hover:text-rose-300"
                 }
               >
                 {tab.label}
@@ -56,10 +56,10 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <ul className="hidden items-center gap-7 text-neutral-700 md:flex">
+        <ul className="hidden items-center gap-7 text-neutral-700 md:flex dark:text-rose-200/70">
           {links.map((link) => (
             <li key={link.label}>
-              <Link href={link.href} className="hover:text-neutral-900">
+              <Link href={link.href} className="hover:text-rose-600 dark:hover:text-rose-300">
                 {link.label}
               </Link>
             </li>
@@ -68,10 +68,10 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <ul className="flex flex-col border-t border-neutral-200 px-4 py-2 text-sm md:hidden">
+        <ul className="flex flex-col border-t border-rose-100 px-4 py-2 text-sm md:hidden dark:border-rose-900/60">
           {[...tabs.map((tab) => ({ label: tab.label, isTab: true, id: tab.id })), ...links.map((link) => ({ label: link.label, href: link.href }))].map(
             (item) => (
-              <li key={item.label} className="border-b border-neutral-100 last:border-b-0">
+              <li key={item.label} className="border-b border-rose-50 last:border-b-0 dark:border-rose-900/40">
                 {"isTab" in item ? (
                   <button
                     type="button"
@@ -80,7 +80,7 @@ export default function Navbar() {
                       setMenuOpen(false);
                     }}
                     className={`flex w-full items-center justify-between py-3 text-left ${
-                      activeTab === item.id ? "font-medium text-blue-600" : "text-neutral-700"
+                      activeTab === item.id ? "font-medium text-rose-600 dark:text-rose-300" : "text-neutral-700 dark:text-rose-200/70"
                     }`}
                   >
                     {item.label}
@@ -89,7 +89,7 @@ export default function Navbar() {
                   <Link
                     href={item.href ?? "#"}
                     onClick={() => setMenuOpen(false)}
-                    className="flex items-center justify-between py-3 text-neutral-700 hover:text-neutral-900"
+                    className="flex items-center justify-between py-3 text-neutral-700 hover:text-neutral-900 dark:text-rose-200/70 dark:hover:text-rose-300"
                   >
                     {item.label}
                   </Link>

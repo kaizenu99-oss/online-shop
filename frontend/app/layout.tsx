@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { LanguageProvider } from "./context/LanguageContext";
+import { ThemeProvider } from "./context/ThemeContext";
 import { CartProvider } from "./context/CartContext";
+import SakuraPetals from "./components/SakuraPetals";
 import "./globals.css";
+
+const themeInitScript = `
+(function () {
+  try {
+    var stored = window.localStorage.getItem("pesio-theme");
+    var dark = stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    if (dark) document.documentElement.classList.add("dark");
+  } catch (e) {}
+})();
+`;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +41,16 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-full flex flex-col">
-        <LanguageProvider>
-          <CartProvider>{children}</CartProvider>
-        </LanguageProvider>
+        <SakuraPetals />
+        <ThemeProvider>
+          <LanguageProvider>
+            <CartProvider>{children}</CartProvider>
+          </LanguageProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

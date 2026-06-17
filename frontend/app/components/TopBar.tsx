@@ -14,13 +14,14 @@ export default function TopBar() {
   const [loginOpen, setLoginOpen] = useState(false);
 
   return (
-    <div className="border-b border-neutral-200">
+    <div className="border-b border-rose-100 dark:border-rose-900/60">
       <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-4 sm:gap-8 sm:px-6">
         <Link href="/" className="flex shrink-0 items-baseline gap-2">
-          <span className="font-serif text-2xl font-bold tracking-wide text-neutral-900 sm:text-3xl">
+          <span aria-hidden className="text-xl">🌸</span>
+          <span className="font-serif text-2xl font-bold tracking-wide text-rose-700 sm:text-3xl dark:text-rose-300">
             pesio
           </span>
-          <span className="hidden text-xs leading-tight text-neutral-500 sm:block">
+          <span className="hidden text-xs leading-tight text-neutral-500 sm:block dark:text-rose-200/60">
             {t(ui.topBar.tagline, lang)}
           </span>
         </Link>
@@ -28,30 +29,30 @@ export default function TopBar() {
         <button
           type="button"
           aria-label={t(ui.topBar.searchPlaceholder, lang)}
-          className="flex items-center justify-center rounded-full border border-neutral-300 p-2 sm:hidden"
+          className="flex items-center justify-center rounded-full border border-rose-200 p-2 sm:hidden dark:border-rose-800 dark:text-rose-200"
         >
           <SearchIcon />
         </button>
 
-        <div className="hidden flex-1 items-center gap-2 rounded-full border border-neutral-300 px-4 py-2.5 sm:flex">
+        <div className="hidden flex-1 items-center gap-2 rounded-full border border-rose-200 px-4 py-2.5 focus-within:border-rose-400 sm:flex dark:border-rose-800 dark:text-rose-200 dark:focus-within:border-rose-500">
           <SearchIcon />
           <input
             type="text"
             placeholder={t(ui.topBar.searchPlaceholder, lang)}
-            className="w-full bg-transparent text-sm outline-none placeholder:text-neutral-400"
+            className="w-full bg-transparent text-sm outline-none placeholder:text-neutral-400 dark:placeholder:text-rose-200/40"
           />
         </div>
 
-        <div className="ml-auto flex items-center gap-4 text-neutral-700 sm:gap-6">
-          <Link href="/wishlist" className="hidden flex-col items-center gap-1 sm:flex">
+        <div className="ml-auto flex items-center gap-4 text-neutral-700 sm:gap-6 dark:text-rose-200">
+          <Link href="/wishlist" className="hidden flex-col items-center gap-1 hover:text-rose-600 sm:flex dark:hover:text-rose-400">
             <HeartIcon />
-            <span className="text-[11px] text-neutral-600">{t(ui.topBar.saved, lang)}</span>
+            <span className="text-[11px] text-neutral-600 dark:text-rose-200/70">{t(ui.topBar.saved, lang)}</span>
           </Link>
-          <Link href="/viewed" className="hidden flex-col items-center gap-1 md:flex">
+          <Link href="/viewed" className="hidden flex-col items-center gap-1 hover:text-rose-600 md:flex dark:hover:text-rose-400">
             <EyeIcon />
-            <span className="text-[11px] text-neutral-600">{t(ui.topBar.viewed, lang)}</span>
+            <span className="text-[11px] text-neutral-600 dark:text-rose-200/70">{t(ui.topBar.viewed, lang)}</span>
           </Link>
-          <Link href="/cart" className="flex flex-col items-center gap-1">
+          <Link href="/cart" className="flex flex-col items-center gap-1 hover:text-rose-600 dark:hover:text-rose-400">
             <span className="relative">
               <CartIcon />
               {totalCount > 0 && (
@@ -60,7 +61,7 @@ export default function TopBar() {
                 </span>
               )}
             </span>
-            <span className="text-[11px] text-neutral-600">{t(ui.topBar.basket, lang)}</span>
+            <span className="text-[11px] text-neutral-600 dark:text-rose-200/70">{t(ui.topBar.basket, lang)}</span>
           </Link>
           <button
             type="button"
@@ -68,7 +69,7 @@ export default function TopBar() {
             className="flex flex-col items-center gap-1"
           >
             <UserIcon />
-            <span className="hidden text-[11px] text-neutral-600 sm:block">
+            <span className="hidden text-[11px] text-neutral-600 sm:block dark:text-rose-200/70">
               {t(ui.topBar.registration, lang)}
             </span>
           </button>

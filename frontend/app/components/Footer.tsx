@@ -9,18 +9,18 @@ export default function Footer() {
   const { lang } = useLanguage();
 
   return (
-    <footer className="border-t border-neutral-200 bg-[#f6f1ea] px-4 py-10 sm:px-6 sm:py-12">
+    <footer className="border-t border-rose-100 bg-[#fdeef1] px-4 py-10 sm:px-6 sm:py-12 dark:border-rose-900/60 dark:bg-[#241016]">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4">
         <div>
-          <p className="font-serif text-2xl text-neutral-900">pesio</p>
-          <p className="mt-3 max-w-xs text-sm text-neutral-500">
+          <p className="font-serif text-2xl text-rose-700 dark:text-rose-300">🌸 pesio</p>
+          <p className="mt-3 max-w-xs text-sm text-neutral-500 dark:text-rose-200/60">
             {t(ui.footer.tagline, lang)}
           </p>
         </div>
 
         {ui.footer.columns.map((column) => (
           <div key={t(column.title, lang)}>
-            <p className="text-sm font-semibold text-neutral-900">
+            <p className="text-sm font-semibold text-neutral-900 dark:text-rose-100">
               {t(column.title, lang)}
             </p>
             <ul className="mt-4 flex flex-col gap-2">
@@ -28,7 +28,7 @@ export default function Footer() {
                 <li key={t(link, lang)}>
                   <Link
                     href="#"
-                    className="text-sm text-neutral-500 hover:text-neutral-900"
+                    className="text-sm text-neutral-500 hover:text-rose-600 dark:text-rose-200/60 dark:hover:text-rose-300"
                   >
                     {t(link, lang)}
                   </Link>
@@ -39,7 +39,7 @@ export default function Footer() {
         ))}
       </div>
 
-      <div className="mx-auto mt-10 max-w-7xl border-t border-neutral-200 pt-6 text-xs text-neutral-400">
+      <div className="mx-auto mt-10 max-w-7xl border-t border-rose-100 pt-6 text-xs text-neutral-400 dark:border-rose-900/60 dark:text-rose-200/40">
         © {new Date().getFullYear()} pesio. {t(ui.footer.rights, lang)}
       </div>
     </footer>

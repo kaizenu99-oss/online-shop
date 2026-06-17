@@ -4,12 +4,13 @@ import { useLanguage } from "../context/LanguageContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
 import LanguageToggle from "./LanguageToggle";
+import ThemeToggle from "./ThemeToggle";
 
 export default function UtilityBar() {
   const { lang } = useLanguage();
 
   return (
-    <div className="bg-neutral-900 text-neutral-300">
+    <div className="bg-rose-950 text-rose-200">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2 text-xs sm:px-6">
         <p className="truncate">{t(ui.utilityBar.welcome, lang)}</p>
 
@@ -18,7 +19,7 @@ export default function UtilityBar() {
             <OrdersIcon />
             {t(ui.utilityBar.myOrders, lang)}
           </a>
-          <span className="h-3 w-px bg-neutral-700" />
+          <span className="h-3 w-px bg-rose-800" />
           <a href="/branches" className="flex items-center gap-1.5 hover:text-white">
             <PinIcon />
             {t(ui.utilityBar.branchAddress, lang)}
@@ -28,7 +29,7 @@ export default function UtilityBar() {
             <HelpIcon />
             {t(ui.utilityBar.help, lang)}
           </a>
-          <span className="h-3 w-px bg-neutral-700" />
+          <span className="h-3 w-px bg-rose-800" />
           <a href="#" aria-label="Facebook" className="hover:text-white">
             <FacebookIcon />
           </a>
@@ -37,7 +38,10 @@ export default function UtilityBar() {
           </a>
         </div>
 
-        <LanguageToggle variant="dark" />
+        <div className="flex items-center gap-2">
+          <ThemeToggle variant="dark" />
+          <LanguageToggle variant="dark" />
+        </div>
       </div>
     </div>
   );

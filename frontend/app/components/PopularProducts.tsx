@@ -21,19 +21,19 @@ export default function PopularProducts() {
     <section className="px-4 py-10 sm:px-6 sm:py-16">
       <div className="mx-auto max-w-7xl">
         <div className="text-center">
-          <h2 className="font-serif text-2xl text-neutral-900">
+          <h2 className="font-serif text-2xl text-rose-700 dark:text-rose-300">
             {t(ui.popularProducts.heading, lang)}
           </h2>
 
-          <div className="mt-6 flex justify-center gap-4 text-sm font-medium text-neutral-400 sm:gap-8">
+          <div className="mt-6 flex justify-center gap-4 text-sm font-medium text-neutral-400 sm:gap-8 dark:text-rose-200/40">
             {productTabs.map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={
                   activeTab === tab
-                    ? "border-b-2 border-neutral-900 pb-2 text-neutral-900"
-                    : "pb-2 hover:text-neutral-700"
+                    ? "border-b-2 border-rose-500 pb-2 text-rose-600 dark:text-rose-300"
+                    : "pb-2 hover:text-rose-500"
                 }
               >
                 {t(ui.popularProducts.tabs[tab], lang)}
