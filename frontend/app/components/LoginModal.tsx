@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
+import { useAuth } from "../context/AuthContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
 
@@ -15,7 +16,13 @@ export default function LoginModal({
   onClose: () => void;
 }) {
   const { lang } = useLanguage();
+  const { login, signup, loginWithGoogle } = useAuth();
   const [mode, setMode] = useState<Mode>("login");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -32,6 +39,51 @@ export default function LoginModal({
       document.body.style.overflow = "";
     };
   }, [open, onClose]);
+
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+    setError(null);
+  };
+
+  const switchMode = (next: Mode) => {
+    setMode(next);
+    setError(null);
+  };
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    setError(null);
+
+    if (mode === "login") {
+      const result = login(email, password);
+      if (!result.success) {
+        setError(t(ui.auth.errorInvalidCredentials, lang));
+        return;
+      }
+    } else {
+      if (password !== confirmPassword) {
+        setError(t(ui.auth.errorPasswordMismatch, lang));
+        return;
+      }
+      const result = signup(name, email, password);
+      if (!result.success) {
+        setError(t(ui.auth.errorEmailTaken, lang));
+        return;
+      }
+    }
+
+    resetForm();
+    onClose();
+  };
+
+  const handleGoogleLogin = () => {
+    loginWithGoogle();
+    resetForm();
+    onClose();
+  };
 
   if (!open) return null;
 
@@ -60,7 +112,7 @@ export default function LoginModal({
         <div className="mt-6 flex gap-6 border-b border-rose-100 text-sm font-medium dark:border-rose-900/60">
           <button
             type="button"
-            onClick={() => setMode("login")}
+            onClick={() => switchMode("login")}
             className={
               mode === "login"
                 ? "border-b-2 border-rose-500 pb-3 text-rose-600 dark:text-rose-300"
@@ -71,7 +123,7 @@ export default function LoginModal({
           </button>
           <button
             type="button"
-            onClick={() => setMode("signup")}
+            onClick={() => switchMode("signup")}
             className={
               mode === "signup"
                 ? "border-b-2 border-rose-500 pb-3 text-rose-600 dark:text-rose-300"
@@ -82,14 +134,38 @@ export default function LoginModal({
           </button>
         </div>
 
-        <form className="mt-6 flex flex-col gap-4" onSubmit={(event) => event.preventDefault()}>
+        <form className="mt-6 flex flex-col gap-4" onSubmit={handleSubmit}>
           {mode === "signup" && (
-            <Field label={t(ui.auth.name, lang)} type="text" autoComplete="name" />
+            <Field
+              label={t(ui.auth.name, lang)}
+              type="text"
+              autoComplete="name"
+              value={name}
+              onChange={setName}
+            />
           )}
-          <Field label={t(ui.auth.email, lang)} type="email" autoComplete="email" />
-          <Field label={t(ui.auth.password, lang)} type="password" autoComplete={mode === "login" ? "current-password" : "new-password"} />
+          <Field
+            label={t(ui.auth.email, lang)}
+            type="email"
+            autoComplete="email"
+            value={email}
+            onChange={setEmail}
+          />
+          <Field
+            label={t(ui.auth.password, lang)}
+            type="password"
+            autoComplete={mode === "login" ? "current-password" : "new-password"}
+            value={password}
+            onChange={setPassword}
+          />
           {mode === "signup" && (
-            <Field label={t(ui.auth.confirmPassword, lang)} type="password" autoComplete="new-password" />
+            <Field
+              label={t(ui.auth.confirmPassword, lang)}
+              type="password"
+              autoComplete="new-password"
+              value={confirmPassword}
+              onChange={setConfirmPassword}
+            />
           )}
 
           {mode === "login" && (
@@ -102,6 +178,12 @@ export default function LoginModal({
                 {t(ui.auth.forgotPassword, lang)}
               </a>
             </div>
+          )}
+
+          {error && (
+            <p className="rounded bg-rose-50 px-3 py-2 text-xs font-medium text-rose-600 dark:bg-rose-900/30 dark:text-rose-300">
+              {error}
+            </p>
           )}
 
           <button
@@ -120,6 +202,7 @@ export default function LoginModal({
 
         <button
           type="button"
+          onClick={handleGoogleLogin}
           className="mt-4 flex w-full items-center justify-center gap-2 rounded border border-rose-200 px-6 py-3 text-sm font-medium text-neutral-700 hover:border-rose-400 dark:border-rose-800 dark:text-rose-100"
         >
           <GoogleIcon />
@@ -130,14 +213,14 @@ export default function LoginModal({
           {mode === "login" ? (
             <>
               {t(ui.auth.noAccount, lang)}{" "}
-              <button type="button" onClick={() => setMode("signup")} className="font-medium text-rose-600 hover:underline dark:text-rose-300">
+              <button type="button" onClick={() => switchMode("signup")} className="font-medium text-rose-600 hover:underline dark:text-rose-300">
                 {t(ui.auth.signupTab, lang)}
               </button>
             </>
           ) : (
             <>
               {t(ui.auth.haveAccount, lang)}{" "}
-              <button type="button" onClick={() => setMode("login")} className="font-medium text-rose-600 hover:underline dark:text-rose-300">
+              <button type="button" onClick={() => switchMode("login")} className="font-medium text-rose-600 hover:underline dark:text-rose-300">
                 {t(ui.auth.loginTab, lang)}
               </button>
             </>
@@ -152,10 +235,14 @@ function Field({
   label,
   type,
   autoComplete,
+  value,
+  onChange,
 }: {
   label: string;
   type: string;
   autoComplete: string;
+  value: string;
+  onChange: (value: string) => void;
 }) {
   return (
     <label className="flex flex-col gap-1 text-left text-xs font-medium text-neutral-600 dark:text-rose-200/70">
@@ -164,6 +251,8 @@ function Field({
         type={type}
         autoComplete={autoComplete}
         required
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
         className="rounded border border-rose-200 px-3 py-2 text-sm text-neutral-900 outline-none focus:border-rose-400 dark:border-rose-800 dark:bg-[#211b1c] dark:text-rose-50 dark:focus:border-rose-500"
       />
     </label>

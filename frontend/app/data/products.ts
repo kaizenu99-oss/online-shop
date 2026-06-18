@@ -1,6 +1,8 @@
 import type { Localized } from "../lib/language";
 
 export type Size = "XS" | "S" | "M" | "L" | "XL" | "XXL";
+export type AgeCategory = "adult" | "child";
+export type ClothingCategoryId = "shirt" | "pants" | "jacket" | "dress" | "other";
 
 export type Product = {
   id: string;
@@ -13,6 +15,8 @@ export type Product = {
   image: string;
   badge?: "Sale" | "New";
   sizes?: Size[];
+  ageCategory?: AgeCategory;
+  clothingCategory?: ClothingCategoryId;
 };
 
 export const products: Product[] = [

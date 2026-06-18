@@ -4,6 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 import { useCart } from "../context/CartContext";
+import { useAuth } from "../context/AuthContext";
+import { useWallet } from "../context/WalletContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
 import LoginModal from "./LoginModal";
@@ -11,6 +13,8 @@ import LoginModal from "./LoginModal";
 export default function TopBar() {
   const { lang } = useLanguage();
   const { totalCount } = useCart();
+  const { user } = useAuth();
+  const { balance } = useWallet();
   const [loginOpen, setLoginOpen] = useState(false);
 
   return (
@@ -63,16 +67,33 @@ export default function TopBar() {
             </span>
             <span className="text-[11px] text-neutral-600 dark:text-rose-200/70">{t(ui.topBar.basket, lang)}</span>
           </Link>
-          <button
-            type="button"
-            onClick={() => setLoginOpen(true)}
-            className="flex flex-col items-center gap-1"
-          >
-            <UserIcon />
-            <span className="hidden text-[11px] text-neutral-600 sm:block dark:text-rose-200/70">
-              {t(ui.topBar.registration, lang)}
-            </span>
-          </button>
+          {user ? (
+            <>
+              <Link href="/account/wallet" className="hidden flex-col items-center gap-1 hover:text-rose-600 sm:flex dark:hover:text-rose-400">
+                <WalletIcon />
+                <span className="text-[11px] text-neutral-600 dark:text-rose-200/70">
+                  {balance.toLocaleString("en-US")}₮
+                </span>
+              </Link>
+              <Link href="/account/profile" className="flex flex-col items-center gap-1 hover:text-rose-600 dark:hover:text-rose-400">
+                <UserIcon />
+                <span className="hidden text-[11px] text-neutral-600 sm:block dark:text-rose-200/70">
+                  {user.name.split(" ")[0]}
+                </span>
+              </Link>
+            </>
+          ) : (
+            <button
+              type="button"
+              onClick={() => setLoginOpen(true)}
+              className="flex flex-col items-center gap-1"
+            >
+              <UserIcon />
+              <span className="hidden text-[11px] text-neutral-600 sm:block dark:text-rose-200/70">
+                {t(ui.topBar.registration, lang)}
+              </span>
+            </button>
+          )}
         </div>
       </div>
 
@@ -103,6 +124,16 @@ function HeartIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M12 21s-7-4.5-9.5-9C.7 8.5 2.5 5 6 5c2 0 3.5 1 4 2.5C10.5 6 12 5 14 5c3.5 0 5.3 3.5 3.5 7-2.5 4.5-9.5 9-9.5 9z" />
+    </svg>
+  );
+}
+
+function WalletIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="2" y="6" width="20" height="14" rx="2" />
+      <path d="M2 10h20" />
+      <circle cx="16" cy="14.5" r="1.2" fill="currentColor" stroke="none" />
     </svg>
   );
 }

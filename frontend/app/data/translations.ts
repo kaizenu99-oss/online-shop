@@ -22,6 +22,7 @@ export const ui = {
     menu: { mn: "ЦЭС", en: "MENU" } as Localized,
     newArrival: { mn: "Шинэ ирэлт", en: "New arrival" } as Localized,
     specialDiscount: { mn: "Тусгай хямдрал", en: "Special discount" } as Localized,
+    categories: { mn: "Ангилал", en: "Categories" } as Localized,
     brands: { mn: "Брэндүүд", en: "Brands" } as Localized,
     giftCard: { mn: "Бэлгийн карт", en: "Gift card" } as Localized,
     aboutUs: { mn: "Бидний тухай", en: "About us" } as Localized,
@@ -34,6 +35,11 @@ export const ui = {
     } as Localized,
     products: { mn: "бараа", en: "Products" } as Localized,
   },
+  categoriesBrowse: {
+    heading: { mn: "Бүтээгдэхүүн", en: "Products" } as Localized,
+    categoriesHeading: { mn: "Ангилал", en: "Categories" } as Localized,
+    brandsHeading: { mn: "Брэндүүд", en: "Brands" } as Localized,
+  },
   categoryPage: {
     home: { mn: "Нүүр", en: "Home" } as Localized,
     backToCategories: { mn: "Бүх ангилал", en: "All categories" } as Localized,
@@ -42,6 +48,11 @@ export const ui = {
       mn: "Таны хайсан ангилал байхгүй байна.",
       en: "The category you're looking for doesn't exist.",
     } as Localized,
+    sizeHeading: { mn: "Размер", en: "Size" } as Localized,
+    ageHeading: { mn: "Насны ангилал", en: "Age category" } as Localized,
+    clothingHeading: { mn: "Хувцасны ангилал", en: "Clothing category" } as Localized,
+    clearFilters: { mn: "Шүүлтүүр арилгах", en: "Clear filters" } as Localized,
+    noResults: { mn: "Тохирох бараа олдсонгүй", en: "No matching products found" } as Localized,
   },
   promos: {
     shopNow: { mn: "ОДОО ХУДАЛДАЖ АВАХ", en: "SHOP NOW" } as Localized,
@@ -61,6 +72,26 @@ export const ui = {
     ordersSection: { mn: "Захиалгууд", en: "Orders" } as Localized,
     myOrders: { mn: "Миний захиалга", en: "My Orders" } as Localized,
     coupon: { mn: "Купон", en: "Coupons" } as Localized,
+  },
+  walletPage: {
+    balance: { mn: "Боломжит үлдэгдэл", en: "Available balance" } as Localized,
+    topUpHeading: { mn: "Token цэнэглэх", en: "Top up tokens" } as Localized,
+    amountPlaceholder: { mn: "Дүн оруулах", en: "Enter amount" } as Localized,
+    topUpButton: { mn: "Цэнэглэх", en: "Top up" } as Localized,
+    quickAmounts: { mn: "Хурдан сонголт", en: "Quick amounts" } as Localized,
+    historyHeading: { mn: "Гүйлгээний түүх", en: "Transaction history" } as Localized,
+    noHistory: { mn: "Гүйлгээ хийгдээгүй байна.", en: "No transactions yet." } as Localized,
+    topUpSuccess: { mn: "Амжилттай цэнэглэгдлээ!", en: "Top up successful!" } as Localized,
+    invalidAmount: { mn: "Зөв дүн оруулна уу.", en: "Please enter a valid amount." } as Localized,
+    qpayTitle: { mn: "QPay-аар төлөх", en: "Pay with QPay" } as Localized,
+    qpayInstruction: {
+      mn: "QPay дэмждэг банкны аппликейшнээр доорх QR кодыг уншуулна уу.",
+      en: "Scan the QR code below using any QPay-supported banking app.",
+    } as Localized,
+    qpayInvoiceAmount: { mn: "Төлбөрийн дүн", en: "Invoice amount" } as Localized,
+    qpayWaiting: { mn: "Төлбөр хүлээгдэж байна...", en: "Waiting for payment..." } as Localized,
+    qpayConfirm: { mn: "Төлбөр хийгдсэн", en: "I've paid" } as Localized,
+    qpayCancel: { mn: "Цуцлах", en: "Cancel" } as Localized,
   },
   dashboardPage: {
     welcome: { mn: "Тавтай морил", en: "Welcome back" } as Localized,
@@ -157,6 +188,23 @@ export const ui = {
     orContinueWith: { mn: "эсвэл үүгээр үргэлжлүүлэх", en: "or continue with" } as Localized,
     google: { mn: "Google-ээр нэвтрэх", en: "Continue with Google" } as Localized,
     close: { mn: "Хаах", en: "Close" } as Localized,
+    errorInvalidCredentials: {
+      mn: "И-мэйл эсвэл нууц үг буруу байна.",
+      en: "Invalid email or password.",
+    } as Localized,
+    errorEmailTaken: {
+      mn: "Энэ и-мэйл хаягаар бүртгэлтэй хэрэглэгч байна.",
+      en: "An account with this email already exists.",
+    } as Localized,
+    errorPasswordMismatch: {
+      mn: "Нууц үг хоорондоо таарахгүй байна.",
+      en: "Passwords do not match.",
+    } as Localized,
+    signupSuccess: { mn: "Амжилттай бүртгэгдлээ!", en: "Account created successfully!" } as Localized,
+  },
+  accountMenu: {
+    greeting: { mn: "Сайн байна уу", en: "Hi" } as Localized,
+    logout: { mn: "Гарах", en: "Log out" } as Localized,
   },
   footer: {
     tagline: {

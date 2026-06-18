@@ -15,6 +15,7 @@ export default function Navbar() {
   const { lang } = useLanguage();
   const pathname = usePathname();
   const onSpecialDiscount = pathname === "/special-discount";
+  const onCategories = pathname === "/categories" || pathname?.startsWith("/categories/");
 
   const tabs: { id: Tab; label: string }[] = [
     { id: "new-arrival", label: t(ui.nav.newArrival, lang) },
@@ -41,6 +42,17 @@ export default function Navbar() {
         </button>
 
         <ul className="hidden items-center gap-7 md:flex">
+          <li>
+            <Link
+              href="/categories"
+              className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-sm font-medium text-white transition-colors ${
+                onCategories ? "bg-rose-700" : "bg-rose-600 hover:bg-rose-700"
+              }`}
+            >
+              <CategoriesIcon />
+              {t(ui.nav.categories, lang)}
+            </Link>
+          </li>
           {tabs.map((tab) => (
             <li key={tab.id}>
               <button
@@ -84,6 +96,7 @@ export default function Navbar() {
       {menuOpen && (
         <ul className="flex flex-col border-t border-rose-100 px-4 py-2 text-sm md:hidden dark:border-rose-900/60">
           {[
+            { label: t(ui.nav.categories, lang), href: "/categories" },
             ...tabs.map((tab) => ({ label: tab.label, isTab: true, id: tab.id })),
             { label: t(ui.nav.specialDiscount, lang), href: "/special-discount" },
             ...links.map((link) => ({ label: link.label, href: link.href })),
@@ -118,6 +131,17 @@ export default function Navbar() {
         </ul>
       )}
     </nav>
+  );
+}
+
+function CategoriesIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="3" y="3" width="7" height="7" rx="1" />
+      <rect x="14" y="3" width="7" height="7" rx="1" />
+      <rect x="3" y="14" width="7" height="7" rx="1" />
+      <rect x="14" y="14" width="7" height="7" rx="1" />
+    </svg>
   );
 }
 

@@ -4,6 +4,8 @@ import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { CartProvider } from "./context/CartContext";
 import { RecentlyViewedProvider } from "./context/RecentlyViewedContext";
+import { AuthProvider } from "./context/AuthContext";
+import { WalletProvider } from "./context/WalletContext";
 import SakuraPetals from "./components/SakuraPetals";
 import "./globals.css";
 
@@ -49,9 +51,13 @@ export default function RootLayout({
         <SakuraPetals />
         <ThemeProvider>
           <LanguageProvider>
-            <CartProvider>
-              <RecentlyViewedProvider>{children}</RecentlyViewedProvider>
-            </CartProvider>
+            <AuthProvider>
+              <WalletProvider>
+                <CartProvider>
+                  <RecentlyViewedProvider>{children}</RecentlyViewedProvider>
+                </CartProvider>
+              </WalletProvider>
+            </AuthProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
