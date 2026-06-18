@@ -2,20 +2,22 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
 
-type Tab = "new-arrival" | "special-discount";
+type Tab = "new-arrival";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState<Tab>("new-arrival");
   const { lang } = useLanguage();
+  const pathname = usePathname();
+  const onSpecialDiscount = pathname === "/special-discount";
 
   const tabs: { id: Tab; label: string }[] = [
     { id: "new-arrival", label: t(ui.nav.newArrival, lang) },
-    { id: "special-discount", label: t(ui.nav.specialDiscount, lang) },
   ];
 
   const links = [
@@ -25,7 +27,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="border-b border-rose-100 bg-white dark:border-rose-900/60 dark:bg-[#241016]">
+    <nav className="border-b border-rose-100 bg-white dark:border-rose-900/60 dark:bg-[#2a2122]">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 text-sm sm:px-6">
         <button
           type="button"
@@ -54,6 +56,18 @@ export default function Navbar() {
               </button>
             </li>
           ))}
+          <li>
+            <Link
+              href="/special-discount"
+              className={
+                onSpecialDiscount
+                  ? "font-medium text-rose-600 dark:text-rose-300"
+                  : "text-neutral-700 hover:text-rose-600 dark:text-rose-200/70 dark:hover:text-rose-300"
+              }
+            >
+              {t(ui.nav.specialDiscount, lang)}
+            </Link>
+          </li>
         </ul>
 
         <ul className="hidden items-center gap-7 text-neutral-700 md:flex dark:text-rose-200/70">
@@ -69,7 +83,11 @@ export default function Navbar() {
 
       {menuOpen && (
         <ul className="flex flex-col border-t border-rose-100 px-4 py-2 text-sm md:hidden dark:border-rose-900/60">
-          {[...tabs.map((tab) => ({ label: tab.label, isTab: true, id: tab.id })), ...links.map((link) => ({ label: link.label, href: link.href }))].map(
+          {[
+            ...tabs.map((tab) => ({ label: tab.label, isTab: true, id: tab.id })),
+            { label: t(ui.nav.specialDiscount, lang), href: "/special-discount" },
+            ...links.map((link) => ({ label: link.label, href: link.href })),
+          ].map(
             (item) => (
               <li key={item.label} className="border-b border-rose-50 last:border-b-0 dark:border-rose-900/40">
                 {"isTab" in item ? (

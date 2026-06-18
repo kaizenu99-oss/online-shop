@@ -46,6 +46,69 @@ export const ui = {
   promos: {
     shopNow: { mn: "ОДОО ХУДАЛДАЖ АВАХ", en: "SHOP NOW" } as Localized,
   },
+  deals: {
+    heading: { mn: "Хямдралтай бараа", en: "Deals & Discounts" } as Localized,
+    discount: { mn: "Хямдрал", en: "Discount" } as Localized,
+    special: { mn: "Онцгой үнэ", en: "Special price" } as Localized,
+  },
+  account: {
+    dashboard: { mn: "Хянах самбар", en: "Dashboard" } as Localized,
+    personalInfo: { mn: "Хувийн мэдээлэл", en: "Personal info" } as Localized,
+    profile: { mn: "Миний профайл", en: "My Profile" } as Localized,
+    saved: { mn: "Хадгалсан", en: "Saved" } as Localized,
+    wallet: { mn: "Хэтэвч", en: "Wallet" } as Localized,
+    viewed: { mn: "Сүүлд үзсэн", en: "Recently viewed" } as Localized,
+    ordersSection: { mn: "Захиалгууд", en: "Orders" } as Localized,
+    myOrders: { mn: "Миний захиалга", en: "My Orders" } as Localized,
+    coupon: { mn: "Купон", en: "Coupons" } as Localized,
+  },
+  dashboardPage: {
+    welcome: { mn: "Тавтай морил", en: "Welcome back" } as Localized,
+    body: {
+      mn: "Энд та өөрийн профайл, захиалга, хадгалсан бараагаа удирдах боломжтой.",
+      en: "Manage your profile, orders, and saved items here.",
+    } as Localized,
+    browse: { mn: "Дэлгүүр хэсэх", en: "Browse shop" } as Localized,
+  },
+  viewedPage: {
+    heading: { mn: "Сүүлд үзсэн бараа", en: "Recently viewed" } as Localized,
+    empty: {
+      mn: "Та одоогоор ямар нэгэн бараа үзээгүй байна.",
+      en: "You haven't viewed any products yet.",
+    } as Localized,
+    clear: { mn: "Бүгдийг арилгах", en: "Clear all" } as Localized,
+  },
+  productPage: {
+    back: { mn: "Буцах", en: "Back" } as Localized,
+    description: {
+      mn: "Энэ бараа таны амьдралын хэв маягт тохирсон, өндөр чанартай материалаар хийгдсэн.",
+      en: "This item is crafted from premium materials to match your everyday lifestyle.",
+    } as Localized,
+    notFoundTitle: { mn: "Бараа олдсонгүй", en: "Product not found" } as Localized,
+    notFoundBody: {
+      mn: "Таны хайсан бараа байхгүй байна.",
+      en: "The product you're looking for doesn't exist.",
+    } as Localized,
+  },
+  comingSoon: {
+    mn: "Тун удахгүй нэмэгдэх болно.",
+    en: "Coming soon.",
+  } as Localized,
+  specialDiscount: {
+    heading: { mn: "Тусгай хямдрал", en: "Special Discount" } as Localized,
+    searchPlaceholder: { mn: "Хайх", en: "Search" } as Localized,
+    brandHeading: { mn: "Брэнд", en: "Brand" } as Localized,
+    ageHeading: { mn: "Насны ангилал", en: "Age category" } as Localized,
+    adult: { mn: "Том хүн", en: "Adult" } as Localized,
+    child: { mn: "Хүүхэд", en: "Child" } as Localized,
+    discountEndsIn: { mn: "Хямдрал дуусах:", en: "Discount ends in:" } as Localized,
+    days: { mn: "хоног", en: "days" } as Localized,
+    noResults: { mn: "Тохирох бараа олдсонгүй", en: "No matching products found" } as Localized,
+    clearFilters: { mn: "Шүүлтүүр арилгах", en: "Clear filters" } as Localized,
+  },
+  emptyState: {
+    browse: { mn: "Дэлгүүр хэсэх", en: "Browse shop" } as Localized,
+  },
   popularProducts: {
     heading: { mn: "Эрэлттэй бараанууд", en: "Popular Products" } as Localized,
     tabs: {

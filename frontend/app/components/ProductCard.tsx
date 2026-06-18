@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import type { Product } from "../data/products";
 import { useLanguage } from "../context/LanguageContext";
 import { useCart } from "../context/CartContext";
@@ -23,7 +24,8 @@ export default function ProductCard({ product }: { product: Product }) {
 
   return (
     <div className="group flex flex-col">
-      <div
+      <Link
+        href={`/product/${product.id}`}
         className="relative flex aspect-square items-center justify-center overflow-hidden rounded-md"
         style={{ backgroundColor: product.color }}
       >
@@ -43,13 +45,16 @@ export default function ProductCard({ product }: { product: Product }) {
             {t(badgeLabel, lang)}
           </span>
         )}
-      </div>
+      </Link>
 
       <div className="mt-4 flex flex-col gap-1">
         <p className="text-xs text-yellow-500">{"★".repeat(product.rating)}{"☆".repeat(5 - product.rating)}</p>
-        <h3 className="text-sm font-medium text-neutral-800 group-hover:text-rose-600 group-hover:underline dark:text-rose-100">
+        <Link
+          href={`/product/${product.id}`}
+          className="text-sm font-medium text-neutral-800 group-hover:text-rose-600 group-hover:underline dark:text-rose-100"
+        >
           {name}
-        </h3>
+        </Link>
         <p className="text-sm font-semibold text-neutral-900 dark:text-rose-50">
           ${product.price}
           {product.oldPrice && (

@@ -14,7 +14,7 @@ export default function CategoryDetail({ category }: { category: Category }) {
   const products = getCategoryProducts(category);
 
   return (
-    <div className="flex flex-1 flex-col bg-[#fff5f7] dark:bg-[#1a0e13]">
+    <div className="flex flex-1 flex-col bg-[#f8f3f3] dark:bg-[#211b1c]">
       <div className="mx-auto w-full max-w-7xl px-4 py-4 text-xs text-neutral-500 sm:px-6 dark:text-rose-200/60">
         <Link href="/" className="hover:text-rose-600 dark:hover:text-rose-300">
           {t(ui.categoryPage.home, lang)}
@@ -25,7 +25,7 @@ export default function CategoryDetail({ category }: { category: Category }) {
 
       <div className="mx-auto flex w-full max-w-7xl items-center gap-5 px-4 pb-8 sm:px-6">
         <span
-          className="relative block h-20 w-20 shrink-0 overflow-hidden rounded-full ring-2 ring-rose-200 ring-offset-2 ring-offset-[#fff5f7] dark:ring-rose-800 dark:ring-offset-[#1a0e13]"
+          className="relative block h-20 w-20 shrink-0 overflow-hidden rounded-full ring-2 ring-rose-200 ring-offset-2 ring-offset-[#f8f3f3] dark:ring-rose-800 dark:ring-offset-[#211b1c]"
           style={{ backgroundColor: category.color }}
         >
           <Image

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { LanguageProvider } from "./context/LanguageContext";
 import { ThemeProvider } from "./context/ThemeContext";
 import { CartProvider } from "./context/CartContext";
+import { RecentlyViewedProvider } from "./context/RecentlyViewedContext";
 import SakuraPetals from "./components/SakuraPetals";
 import "./globals.css";
 
@@ -48,7 +49,9 @@ export default function RootLayout({
         <SakuraPetals />
         <ThemeProvider>
           <LanguageProvider>
-            <CartProvider>{children}</CartProvider>
+            <CartProvider>
+              <RecentlyViewedProvider>{children}</RecentlyViewedProvider>
+            </CartProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>

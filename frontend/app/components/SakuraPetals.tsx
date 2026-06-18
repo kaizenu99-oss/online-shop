@@ -19,12 +19,12 @@ function PetalShape({ opacity }: { opacity: number }) {
     <svg width="100%" height="100%" viewBox="0 0 32 32" style={{ opacity }}>
       <path
         d="M16 2c4 4 8 6 8 11a8 8 0 0 1-16 0c0-5 4-7 8-11z"
-        fill="#f8b4c0"
+        fill="#ff7d96"
       />
       <path
         d="M16 2c4 4 8 6 8 11a8 8 0 0 1-16 0c0-5 4-7 8-11z"
-        fill="#fbcdd6"
-        opacity="0.5"
+        fill="#ffb0c2"
+        opacity="0.6"
       />
     </svg>
   );
@@ -41,8 +41,8 @@ export default function SakuraPetals() {
         size: 12 + Math.random() * 14,
         duration: 9 + Math.random() * 8,
         delay: Math.random() * 10,
-        drift: Math.random() * 120 - 60,
-        opacity: 0.5 + Math.random() * 0.4,
+        drift: 60 + Math.random() * 100,
+        opacity: 0.7 + Math.random() * 0.3,
       }))
     );
   }, []);

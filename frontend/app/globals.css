@@ -3,13 +3,13 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --background: #fff5f7;
-  --foreground: #3a1f27;
+  --background: #f8f3f3;
+  --foreground: #463a3b;
 }
 
 .dark {
-  --background: #1a0e13;
-  --foreground: #fbe7ec;
+  --background: #211b1c;
+  --foreground: #e6dada;
 }
 
 @theme inline {
@@ -17,6 +17,18 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-rose-50: #f5f0f0;
+  --color-rose-100: #ece1e1;
+  --color-rose-200: #dcc9ca;
+  --color-rose-300: #c7acae;
+  --color-rose-400: #ad8c8f;
+  --color-rose-500: #927074;
+  --color-rose-600: #7a5b5e;
+  --color-rose-700: #634a4d;
+  --color-rose-800: #4d3a3c;
+  --color-rose-900: #3a2c2e;
+  --color-rose-950: #241c1d;
 }
 
 body {
@@ -28,7 +40,7 @@ body {
 
 @keyframes petal-fall {
   0% {
-    transform: translateY(-10vh) translateX(0) rotate(0deg);
+    transform: translateY(-10vh) translateX(0);
     opacity: 0;
   }
   10% {
@@ -38,7 +50,7 @@ body {
     opacity: 1;
   }
   100% {
-    transform: translateY(110vh) translateX(var(--petal-drift, 40px)) rotate(360deg);
+    transform: translateY(110vh) translateX(var(--petal-drift, 80px));
     opacity: 0;
   }
 }
@@ -50,5 +62,6 @@ body {
   animation-name: petal-fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  animation-fill-mode: backwards;
   will-change: transform, opacity;
 }

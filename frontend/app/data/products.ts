@@ -1,5 +1,7 @@
 import type { Localized } from "../lib/language";
 
+export type Size = "XS" | "S" | "M" | "L" | "XL" | "XXL";
+
 export type Product = {
   id: string;
   name: Localized;
@@ -10,6 +12,7 @@ export type Product = {
   color: string;
   image: string;
   badge?: "Sale" | "New";
+  sizes?: Size[];
 };
 
 export const products: Product[] = [

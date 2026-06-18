@@ -9,7 +9,7 @@ export default function Footer() {
   const { lang } = useLanguage();
 
   return (
-    <footer className="border-t border-rose-100 bg-[#fdeef1] px-4 py-10 sm:px-6 sm:py-12 dark:border-rose-900/60 dark:bg-[#241016]">
+    <footer className="border-t border-rose-100 bg-[#f1e6e6] px-4 py-10 sm:px-6 sm:py-12 dark:border-rose-900/60 dark:bg-[#2a2122]">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 lg:grid-cols-4">
         <div>
           <p className="font-serif text-2xl text-rose-700 dark:text-rose-300">🌸 Төгс сонголт</p>

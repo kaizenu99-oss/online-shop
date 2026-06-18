@@ -43,7 +43,7 @@ export default function LoginModal({
       <div
         role="dialog"
         aria-modal="true"
-        className="relative w-full max-w-sm rounded-lg bg-white p-6 shadow-xl sm:p-8 dark:bg-[#241016]"
+        className="relative w-full max-w-sm rounded-lg bg-white p-6 shadow-xl sm:p-8 dark:bg-[#2a2122]"
         onClick={(event) => event.stopPropagation()}
       >
         <button
@@ -164,7 +164,7 @@ function Field({
         type={type}
         autoComplete={autoComplete}
         required
-        className="rounded border border-rose-200 px-3 py-2 text-sm text-neutral-900 outline-none focus:border-rose-400 dark:border-rose-800 dark:bg-[#1a0e13] dark:text-rose-50 dark:focus:border-rose-500"
+        className="rounded border border-rose-200 px-3 py-2 text-sm text-neutral-900 outline-none focus:border-rose-400 dark:border-rose-800 dark:bg-[#211b1c] dark:text-rose-50 dark:focus:border-rose-500"
       />
     </label>
   );
