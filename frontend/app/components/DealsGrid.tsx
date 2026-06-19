@@ -6,10 +6,7 @@ import { dealProducts } from "../data/dealProducts";
 import { useLanguage } from "../context/LanguageContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
-
-function formatMnt(value: number) {
-  return `${value.toLocaleString("en-US")} ₮`;
-}
+import { formatMnt } from "../lib/currency";
 
 export default function DealsGrid() {
   const { lang } = useLanguage();

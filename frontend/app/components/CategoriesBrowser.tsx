@@ -9,6 +9,7 @@ import { getSpecialDiscountBrands } from "../data/specialDiscountProducts";
 import { useLanguage } from "../context/LanguageContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
+import { formatMnt } from "../lib/currency";
 import type { Product } from "../data/products";
 
 export default function CategoriesBrowser() {
@@ -37,6 +38,8 @@ export default function CategoriesBrowser() {
 
       <div className="mt-6 flex flex-col gap-6 sm:flex-row">
         <aside className="w-full shrink-0 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-rose-100 dark:bg-[#2a2122] dark:ring-rose-900/40 sm:w-64">
+          <NavControls />
+
           <p className="px-2 text-xs font-semibold uppercase tracking-wide text-neutral-400 dark:text-rose-200/40">
             {t(ui.categoriesBrowse.categoriesHeading, lang)}
           </p>
@@ -103,10 +106,10 @@ function BrowseProductCard({ product, lang }: { product: Product; lang: "mn" | "
       <div className="flex flex-col gap-1 p-3">
         <p className="text-sm font-medium text-neutral-800 dark:text-rose-100">{t(product.name, lang)}</p>
         <p className="text-sm font-semibold text-neutral-900 dark:text-rose-50">
-          ${product.price}
+          {formatMnt(product.price)}
           {product.oldPrice && (
             <span className="ml-2 text-xs font-normal text-neutral-400 line-through dark:text-rose-200/40">
-              ${product.oldPrice}
+              {formatMnt(product.oldPrice)}
             </span>
           )}
         </p>

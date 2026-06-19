@@ -8,6 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 import { useCart } from "../context/CartContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
+import { formatMnt } from "../lib/currency";
 
 export default function ProductCard({ product }: { product: Product }) {
   const { lang } = useLanguage();
@@ -56,10 +57,10 @@ export default function ProductCard({ product }: { product: Product }) {
           {name}
         </Link>
         <p className="text-sm font-semibold text-neutral-900 dark:text-rose-50">
-          ${product.price}
+          {formatMnt(product.price)}
           {product.oldPrice && (
             <span className="ml-2 text-xs font-normal text-neutral-400 line-through dark:text-rose-200/40">
-              ${product.oldPrice}
+              {formatMnt(product.oldPrice)}
             </span>
           )}
         </p>

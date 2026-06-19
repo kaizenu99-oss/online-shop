@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
+import NavControls from "./NavControls";
 
 type Tab = "new-arrival";
 
@@ -53,6 +54,11 @@ export default function Navbar() {
               {t(ui.nav.categories, lang)}
             </Link>
           </li>
+          {onCategories && (
+            <li>
+              <NavControls />
+            </li>
+          )}
           {tabs.map((tab) => (
             <li key={tab.id}>
               <button

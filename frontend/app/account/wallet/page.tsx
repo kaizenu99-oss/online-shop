@@ -7,12 +7,9 @@ import { useWallet } from "../../context/WalletContext";
 import { useLanguage } from "../../context/LanguageContext";
 import { ui } from "../../data/translations";
 import { t } from "../../lib/language";
+import { formatMnt } from "../../lib/currency";
 
 const QUICK_AMOUNTS = [5000, 10000, 20000, 50000];
-
-function formatMnt(value: number) {
-  return `${value.toLocaleString("en-US")} ₮`;
-}
 
 export default function WalletPage() {
   const { balance, transactions, topUp } = useWallet();

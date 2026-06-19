@@ -1,6 +1,10 @@
 import type { Localized } from "../lib/language";
 
 export const ui = {
+  navControls: {
+    back: { mn: "Буцах", en: "Back" } as Localized,
+    home: { mn: "Нүүр хуудас", en: "Home" } as Localized,
+  },
   utilityBar: {
     welcome: { mn: "Тавтай морил", en: "Welcome to Tugs Songolt" } as Localized,
     myOrders: { mn: "Захиалгууд", en: "My Orders" } as Localized,
@@ -72,6 +76,24 @@ export const ui = {
     ordersSection: { mn: "Захиалгууд", en: "Orders" } as Localized,
     myOrders: { mn: "Миний захиалга", en: "My Orders" } as Localized,
     coupon: { mn: "Купон", en: "Coupons" } as Localized,
+  },
+  cartPage: {
+    heading: { mn: "Сагс", en: "Shopping Cart" } as Localized,
+    empty: { mn: "Таны сагс хоосон байна.", en: "Your cart is empty." } as Localized,
+    browse: { mn: "Дэлгүүр хэсэх", en: "Browse shop" } as Localized,
+    remove: { mn: "Хасах", en: "Remove" } as Localized,
+    summaryHeading: { mn: "Захиалгын дүн", en: "Order summary" } as Localized,
+    subtotal: { mn: "Дэд дүн", en: "Subtotal" } as Localized,
+    total: { mn: "Нийт дүн", en: "Total" } as Localized,
+    checkout: { mn: "Захиалга баталгаажуулах", en: "Place order" } as Localized,
+    orderPlaced: { mn: "Таны захиалга амжилттай баталгаажлаа!", en: "Your order has been placed!" } as Localized,
+  },
+  ordersPage: {
+    heading: { mn: "Миний захиалга", en: "My Orders" } as Localized,
+    empty: { mn: "Та одоогоор захиалга хийгээгүй байна.", en: "You haven't placed any orders yet." } as Localized,
+    orderLabel: { mn: "Захиалга", en: "Order" } as Localized,
+    itemsCount: { mn: "бараа", en: "items" } as Localized,
+    status: { mn: "Баталгаажсан", en: "Confirmed" } as Localized,
   },
   walletPage: {
     balance: { mn: "Боломжит үлдэгдэл", en: "Available balance" } as Localized,
@@ -155,7 +177,7 @@ export const ui = {
   features: [
     {
       title: { mn: "Дэлхий дахинд хүргэлт", en: "Worldwide Shipping" } as Localized,
-      description: { mn: "$100-аас дээш үнэтэй захиалгад үнэгүй хүргэлт", en: "Free Shipping Above $100" } as Localized,
+      description: { mn: "250,000₮-c дээш үнэтэй захиалгад үнэгүй хүргэлт", en: "Free Shipping Above 250,000₮" } as Localized,
     },
     {
       title: { mn: "Мөнгөн буцаалтын баталгаа", en: "Money Back Guarantee" } as Localized,

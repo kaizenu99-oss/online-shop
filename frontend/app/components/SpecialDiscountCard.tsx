@@ -7,10 +7,7 @@ import type { SpecialDiscountProduct } from "../data/specialDiscountProducts";
 import { useLanguage } from "../context/LanguageContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
-
-function formatMnt(value: number) {
-  return `${value.toLocaleString("en-US")} ₮`;
-}
+import { formatMnt } from "../lib/currency";
 
 export default function SpecialDiscountCard({ product }: { product: SpecialDiscountProduct }) {
   const { lang } = useLanguage();

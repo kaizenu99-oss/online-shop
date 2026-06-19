@@ -4,12 +4,9 @@ import { useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { ui } from "../data/translations";
 import { t } from "../lib/language";
+import { formatMnt } from "../lib/currency";
 
 const BANK_APPS = ["Khan Bank", "TDB", "Golomt", "State Bank", "Xac Bank"];
-
-function formatMnt(value: number) {
-  return `${value.toLocaleString("en-US")} ₮`;
-}
 
 export default function QPayModal({
   amount,
