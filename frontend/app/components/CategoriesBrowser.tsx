@@ -38,8 +38,6 @@ export default function CategoriesBrowser() {
 
       <div className="mt-6 flex flex-col gap-6 sm:flex-row">
         <aside className="w-full shrink-0 rounded-2xl bg-white p-4 shadow-sm ring-1 ring-rose-100 dark:bg-[#2a2122] dark:ring-rose-900/40 sm:w-64">
-          <NavControls />
-
           <p className="px-2 text-xs font-semibold uppercase tracking-wide text-neutral-400 dark:text-rose-200/40">
             {t(ui.categoriesBrowse.categoriesHeading, lang)}
           </p>
